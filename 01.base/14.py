@@ -13,6 +13,7 @@ class Student(object):
         self.name = name
         self.age = age
 
+
     def eat(self):
         print("吃")
 
@@ -21,6 +22,9 @@ class Student(object):
 
     def __del__(self):
         print("执行了销毁方法")
+
+    def __str__(self) -> str:
+        return f'我的名字是{self.name}, 我的年龄是{self.age}'
 
 
 def test1():
@@ -40,12 +44,16 @@ def test1():
 
 
 if __name__ == '__main__':
+    # test1()
     s2 = Student("田坤",24)
-    print(s2.name)
+    print(s2)
+    s =  str(s2)
+    print(s)
+    # print(s2.name)
 
-    del s2
+    # del s2
 
     # s3 = Student()
     # s3.eat()
 
-    print(Student.__mro__)
+    # print(Student.__mro__)

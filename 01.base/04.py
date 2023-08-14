@@ -35,3 +35,43 @@ while i <= 100:
     i += 1
 else:
     print('下载完成')
+
+
+# 需求:打印五行五列的一个*组成的矩形
+"""
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+* * * * *
+"""
+i = j = 0
+while i < 5:
+    j = 0
+    while j < 5:
+        print("*",end=" ")
+        j += 1
+    i += 1
+    print("")
+
+# 使用while循环的嵌套打印九九乘法表
+"""
+1 * 1 = 1
+1 * 2 = 2  2 * 2 = 4
+.......
+"""
+
+i = 1
+while i <= 9:
+    j = 1
+    while j <= i:
+        print(f"{j} * {i} = {i*j}" ,end=" ")
+        j += 1
+    print()
+    i += 1
+
+
+str1 = 'helloPython'
+for i in str1:
+    print(i)
+

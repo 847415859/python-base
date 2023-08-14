@@ -1,11 +1,10 @@
 num_list = [1, 2, 3, 4, 5, 6, 7, 8, 5]
-
 print(num_list.count(5))
 
-print('5' in num_list)
+
+print(5 in num_list)
 
 num_list.extend('abc')
-
 print(num_list)
 
 # sort  排序
@@ -65,3 +64,13 @@ for key,value in dictv.items():
 setv = {1,2,3,4,5,5,55,5,5}
 print(setv)
 
+num_list = [1, 2, 3, 4]
+print(num_list.insert(1, 5))
+print(num_list)
+
+
+del num_list[4]
+
+num_list.pop()
+
+print(num_list)

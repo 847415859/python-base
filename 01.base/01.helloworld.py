@@ -9,6 +9,13 @@ print("Hello world!")
 
 # 注释
 
+#
+
+'s swwerewrew'
+
+"""
+"sdasdsa"
+"""
 a = 10
 
 print(10)

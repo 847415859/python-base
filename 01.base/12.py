@@ -25,3 +25,4 @@ if __name__ == '__main__':
     print(list1)
     list1.sort(key= lambda item: list(item.values())[0])
     print(list1)
+

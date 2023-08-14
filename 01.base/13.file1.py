@@ -2,12 +2,12 @@ import os
 
 
 def fileRead():
-    file = open("python.txt", mode="r")
+    file = open("python1.txt", mode="r",encoding="utf8")
     print(type(file))
     print(file)
-    print(file.readline())
+    # print(file.readline())
     print("=============")
-    print(file.readlines())
+    # print(file.readlines())
     print("=============")
     print(file.read())
 
@@ -40,9 +40,10 @@ def backupFile():
 if __name__ == '__main__':
     # os.rename(src="python.txt",dst="python2.txt")
     # os.remove("python2.txt")
-    print(os.cpu_count())
-    print(os.curdir)
-    print(os.listdir)
-    for dir in os.listdir():
-        print(dir)
+    fileRead()
+    # print(os.cpu_count())
+    # print(os.curdir)
+    # print(os.listdir)
+    # for dir in os.listdir():
+    #     print(dir)
 

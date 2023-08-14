@@ -24,12 +24,27 @@ print(int(float(v2)))
 print(int(v3))
 
 
+print("次幂计算")
+print(2**3)
+print(3//2)
+# 在除法运算中，结果肯定为小数
+print(9/3)
+print(0.1 + 0.2)
+
+print(1,2,3,4,5,6)
+
+
+# 比较运算符可以连续使用(Python中的特性)
+age = 13
+print(12 < age < 30)  # True
+# 不等号也可以连续使用
+print(12 < age == 13)  # False
 
 
 '''
     逻辑运算符
 '''
-
+print("========逻辑运算符=============")
 print(not (True and False))
 
 
@@ -44,8 +59,12 @@ print(False or "aa")
 print(random.randint(1,100))
 
 
-#
-#
+'''
+    三目运算符
+'''
+age = 13
+print("你好" if age != 13 else "我不好")
+
 # age = int(input('请输入对方的年龄:'))
 #
 # if age > 100 or age < 0:
@@ -62,3 +81,5 @@ print(random.randint(1,100))
 # else:
 #     print('老奶奶,您真慈祥')
 #     print('我北京三套房')
+
+

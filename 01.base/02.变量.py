@@ -37,3 +37,13 @@ print("字符串输出格式化 %s， %s" % (v1, v4))
 
 print("aaaa",end='')
 print("bbb",end='')
+
+
+print(123)
+print('hello world \n')
+print(456)
+print('3  4\t5')
+print("3  4\t5")
+
+
+print('我的成绩增加了%d%%' % 1)

@@ -1,3 +1,5 @@
+import sys
+
 
 class CustomException(Exception):
 
@@ -7,6 +9,10 @@ class CustomException(Exception):
 
 if __name__ == '__main__':
     try:
+        for i in sys.path:
+            print(i)
+
+        print("=" * 300)
         # i = 1 / 0
         i = 1
         raise CustomException("错误了")
