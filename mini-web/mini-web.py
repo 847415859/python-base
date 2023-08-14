@@ -2,6 +2,8 @@ import json
 import socket
 import threading
 
+import pymysql
+
 
 class WebServer():
 
@@ -9,7 +11,7 @@ class WebServer():
         # 1、创建服务端对象
         self.server = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
         # 2、绑定ip和端口
-        self.server.bind(('localhost', 8001))
+        self.server.bind(('localhost', 8002))
         # 3、监听
         self.server.listen(5)
 
@@ -38,13 +40,17 @@ class WebServer():
             clinet_data.send(b'not data')
             return None
         # 5、根据不同的请求路径读取不同的页面文件数据返回浏览器
-        if url_path == '/users':
-            data_json = {'name':'田坤','age':18}
-            send_data = json.dumps(data_json)
-        elif url_path == '/goods':
-            send_data = '/goods'
-        else:
-            send_data = 'error'
+        index = url_path.find('?')
+        param = ''
+        if index != -1:
+            urls =  url_path.split("?")
+            url_path = urls[0]
+            param = urls[1]
+
+        send_data = self.url_route({
+            "url_path": url_path,
+            "param" : param
+        })
 
         # 构建报文数据
         # 响应行
@@ -53,10 +59,55 @@ class WebServer():
         response_header = 'Server:itcast\r\n\r\n'
         # 响应体
         response_body = send_data
-
         respose_data = response_line + response_header + response_body
-
         clinet_data.send(respose_data.encode())
+
+    def url_route(self, env):
+        url_path = env['url_path']
+        param = env['param']
+        if url_path == '/':
+            db = pymysql.connect(host='192.168.126.100', port=3308, user='root', password="root", database="booksite")
+            cursor = db.cursor()
+            cursor.execute("select * from bookinfo ")
+            res_data = cursor.fetchall()
+            lst = list()
+            print(type(lst))
+            for row in res_data:
+                lst.append({
+                    "id": row[0],
+                    "name": row[1],
+                    "auth": row[2],
+                    "img_url": row[3],
+                    "rank": row[4],
+                    "bread": row[5],
+                    "bcomment": row[6],
+                    "content": row[7],
+                    "score": row[8],
+                    "synopsis": row[9]
+                })
+            send_data = json.dumps(lst)
+        elif url_path == '/book' and param != '':
+            db = pymysql.connect(host='192.168.126.100', port=3308, user='root', password="root", database="booksite")
+            cursor = db.cursor()
+            cursor.execute("select * from bookinfo where " + param)
+            row = cursor.fetchone()
+            dict = {
+                "id": row[0],
+                "name": row[1],
+                "auth": row[2],
+                "img_url": row[3],
+                "rank": row[4],
+                "bread": row[5],
+                "bcomment": row[6],
+                "content": row[7],
+                "score": row[8],
+                "synopsis": row[9]
+            }
+            send_data = json.dumps(dict)
+        else:
+            send_data = 'error'
+        return send_data
+
     def start(self):
 
         # 循环等待客户端连接
