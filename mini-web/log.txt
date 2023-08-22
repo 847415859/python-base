@@ -1,0 +1,5 @@
+2023-08-14 13:32:22,721 - loggingDemo.py[line:14] - DEBUG: 这是一个debug级别的日志信息
+2023-08-14 13:32:22,721 - loggingDemo.py[line:15] - INFO: 这是一个info级别的日志信息
+2023-08-14 13:32:22,721 - loggingDemo.py[line:16] - WARNING: 这是一个warning级别的日志信息
+2023-08-14 13:32:22,721 - loggingDemo.py[line:17] - ERROR: 这是一个error级别的日志信息
+2023-08-14 13:32:22,722 - loggingDemo.py[line:18] - CRITICAL: 这是一个critical级别的日志信息
