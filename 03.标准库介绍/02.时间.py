@@ -26,7 +26,6 @@ def datetimeBase():
     print(now.time())
     print(now)
 
-
 if __name__ == '__main__':
     # 1.字符串格式化输出
     datetime = datetime(2022,11,12)
@@ -38,3 +37,4 @@ if __name__ == '__main__':
     # ① datetime 的 strptime
     print(datetime.strptime("2021-11-23", "%Y-%m-%d"))
     # ② parse
+    pan

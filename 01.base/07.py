@@ -13,7 +13,7 @@ for i in enumerate(list2):
 # 推导式
 # [要插入列表的表达式 for 临时变量 in 数据序列]
 
-list1 =[1 for i in range(1,100) if i % 2 == 0]
+list1 =[1 for i in range(1,100) if i % 2==  0]
 print(list1)
 
 
